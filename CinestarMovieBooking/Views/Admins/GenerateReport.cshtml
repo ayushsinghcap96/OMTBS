@@ -1,0 +1,56 @@
+﻿@model CinestarEntities.TicketEntity
+
+@{
+    ViewBag.Title = "GenerateReport";
+}
+
+
+@Html.Raw(TempData["msg"])
+<div style="text-align:center" class="wrap-input100  p-l-55 p-r-55 p-t-400 p-b-30">
+    <h2>Generate Report</h2>
+
+    <hr />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div style="text-align:center">
+            <div class="row">
+                <div class="col-md-3"><span></span></div>
+                <div class="col-md-2">
+                    @Html.Label("From:")
+                </div>
+                <div class="col-md-3">
+                    @Html.TextBox("from", null, new { @type = "Date", @class = "form-control" })<br />
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-3"><span></span></div>
+                <div class="col-md-2">
+                    @Html.Label("To:")
+                </div>
+                <div class="col-md-3">
+                    @Html.TextBox("to", null, new { @type = "Date", @class = "form-control" })<br />
+                </div>
+
+            </div>
+            <div class="row">
+
+                <input type="submit" value="Show details" class="btn btn-default" />
+            </div>
+
+
+        </div>
+        <br />
+        <br />
+        <a href="~/Admins/IndexFeedback">Click here to see Feedback </a>
+
+    }
+
+</div>

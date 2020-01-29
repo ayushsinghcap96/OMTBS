@@ -1,0 +1,42 @@
+﻿@model IEnumerable<CinestarEntities.FeedbackEntityNew>
+
+
+@{
+    ViewBag.Title = "IndexFeedback";
+}
+<div class=" wrap-input100  p-l-55 p-r-55 p-t-400 p-b-30">
+
+
+    <h2>Feedback List</h2>
+
+
+    <table class="table">
+        <tr>
+
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.FeedbackDetails)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Viewer)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.FeedbackDetails)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Viewer)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "DetailsFeedback", new { id = item.FeedbackId }) |
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

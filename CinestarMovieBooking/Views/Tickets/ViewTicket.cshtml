@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewBag.Title = "ViewTicket";
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal wrap-input100  p-l-55 p-r-55 p-t-400 p-b-30">
+        <br />
+        <h4>
+             Your Tickets
+        </h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <form class="form-control ">
+
+            <div class="container ">
+                <div class="container text-center p-l-55 p-r-55 p-t-400 p-b-30" style="border:dashed">
+
+                    <br />
+                    <br />
+                    <div class=" text-center row " style="margin:10px">
+                        <div class="col-lg-2" style="font:600;font-family:'Bookman Old Style'">Name </div>
+                        <div class="col-lg-5">
+                            <input class="form-control" type="text" disabled value="@ViewBag.NameOfCustomer">
+                        </div>
+
+                    </div>
+                    <div class=" text-center row " style="margin:10px">
+                        <div class="col-lg-2" style="font:600;font-family:'Bookman Old Style'">Movie Name</div>
+                        <div class="col-lg-5">
+                            <input class="form-control" type="text" disabled value="@ViewBag.MovieName">
+                        </div>
+                    </div>
+                    <div class=" text-center row " style="margin:10px">
+                        <div class="col-lg-2" style="font:600;font-family:'Bookman Old Style'">Show Date</div>
+                        <div class="col-lg-2">
+                            <input class="form-control" type="text" disabled value="@ViewBag.ShowDate">
+                        </div>
+
+                    </div>
+                    <div class=" text-center row " style="margin:10px">
+                        <div class="col-lg-2" style="font:600;font-family:'Bookman Old Style'">No of Tickets</div>
+                        <div class="col-lg-5">
+                            <input class="form-control" type="text" disabled value="@ViewBag.noOfTickets">
+                        </div>
+
+                    </div>
+
+                    <div class=" text-center row " style="margin:10px">
+                        <div class="col-lg-2" style="font:600;font-family:'Bookman Old Style'">Seat Nos</div>
+                        <div class="col-lg-5">
+                            <input class="form-control" type="text" disabled value="@ViewBag.seatNos">
+                        </div>
+
+                    </div>
+                    <div class=" text-center row " style="margin:10px">
+                        <div class="col-lg-2" style="font:600;font-family:'Bookman Old Style'">Sccreen</div>
+                        <div class="col-lg-5">
+                            <input class="form-control" type="text" disabled value="@ViewBag.ScreenName">
+                        </div>
+
+                    </div>
+                    <div class=" text-center row ">
+                        <div class="col-lg-2" style="font:600;font-family:'Bookman Old Style'">Ticket Price</div>
+                        <div class="col-lg-5">
+                            <input class="form-control" type="text" disabled value="@ViewBag.Price">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <br /><br /><br /><br />
+           
+
+        </form>
+
+
+
+
+    </div>
+}

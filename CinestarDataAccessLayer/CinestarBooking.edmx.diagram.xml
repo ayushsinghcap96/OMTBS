@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="33a4e858ffc74bdf9df3bf19f39e96bc" Name="Diagram1">
+        <EntityTypeShape EntityType="CinestarModelDAL.Admin" Width="1.5" PointX="7.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CinestarModelDAL.Feedback" Width="1.5" PointX="7.5" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CinestarModelDAL.Genre" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CinestarModelDAL.Language" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CinestarModelDAL.Movy" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="CinestarModelDAL.Screen" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CinestarModelDAL.Show" Width="1.5" PointX="5.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CinestarModelDAL.ShowSeatLayout" Width="1.5" PointX="7.5" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CinestarModelDAL.Ticket" Width="1.5" PointX="7.5" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CinestarModelDAL.User" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CinestarModelDAL.ViewerProfile" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
+        <AssociationConnector Association="CinestarModelDAL.fk_feedbackviewersid" ManuallyRouted="false" />
+        <AssociationConnector Association="CinestarModelDAL.fk_Genreid" ManuallyRouted="false" />
+        <AssociationConnector Association="CinestarModelDAL.fk_languageid" ManuallyRouted="false" />
+        <AssociationConnector Association="CinestarModelDAL.FK__Tickets__MovieId__22AA2996" ManuallyRouted="false" />
+        <AssociationConnector Association="CinestarModelDAL.fk_movieid" ManuallyRouted="false" />
+        <AssociationConnector Association="CinestarModelDAL.fk_screenid" ManuallyRouted="false" />
+        <AssociationConnector Association="CinestarModelDAL.FK__ShowSeatL__ShowI__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="CinestarModelDAL.fk_showid" ManuallyRouted="false" />
+        <AssociationConnector Association="CinestarModelDAL.fk_viewersid" ManuallyRouted="false" />
+        <AssociationConnector Association="CinestarModelDAL.fk_username" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

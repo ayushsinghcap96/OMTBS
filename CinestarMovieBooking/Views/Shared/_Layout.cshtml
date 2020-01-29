@@ -1,0 +1,232 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Cinestar Cinemas</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/util.css" rel="stylesheet" />
+    <link href="~/Content/main.css" rel="stylesheet" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .parent::after {
+            background: transparent;
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        .wrap-input100 {
+            width: auto;
+            position: relative;
+            background: rgba(238, 238, 238, .8);
+            border-radius: 20px;
+        }
+
+        .hide {
+            background: transparent;
+            color: rgba(0,0,0,0);
+            display: none;
+        }
+        a.actionlink {
+            color: #333333
+        }
+
+            a.actionlink:active {
+                color: #666666
+            }
+
+        a.actionlink:link {
+            color: #999999
+        }
+
+        a.actionlink:visited {
+            color: #CCCCCC
+        }
+        .child {
+            width: 25%;
+        }
+
+        .inline-block-child {
+            display: inline-block;
+        }
+
+        .flip-card {
+            background-color: transparent;
+            max-width: 200px;
+            height: 250px;
+            perspective: 1000px;
+            margin: 20px;
+            padding-bottom: 10px;
+            padding-top: 10px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        }
+
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+        }
+
+
+
+        button {
+            border: none;
+            outline: 0;
+            display: inline-block;
+            padding: 8px;
+            color: white;
+            font-size: large;
+            background-color: grey;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+            font-size: 20px;
+        }
+
+            button:hover, a:hover {
+                opacity: 0.7;
+            }
+
+        .flip-card-front {
+            background-color: #bbb;
+            color: black;
+        }
+
+        .flip-card-back {
+            background-color: #2980b9;
+            color: white;
+            transform: rotateY(180deg);
+        }
+    </style>
+   
+</head>
+<body style="background-image:url('../../theatre.jpg');     background-attachment: fixed;
+background-size:cover; background-repeat:no-repeat ;background-position: center center">
+    @{ 
+
+        string usersession=string.Empty;
+        string adminsession=string.Empty;
+        if(Session["AdminName"] != null)
+        {
+            adminsession = Session["AdminName"].ToString();
+        }
+        if (Session["Username"] != null)
+        {
+            usersession = Session["Username"].ToString();
+        }
+    }
+
+
+
+    <nav class="navbar navbar-inverse" >
+        <div class="container-fluid">
+            <div class="navbar-header">
+                @{
+                    if (!adminsession.IsEmpty())
+                    {
+                        <a href="#" class="navbar-brand" style="color:white">CineStar Cinemas</a>
+
+                    }
+                    else if (!usersession.IsEmpty())
+                    {
+                        <a href="~/Movies/ListAllMovies" class="navbar-brand" style="color:white">CineStar Cinemas</a>
+
+                    }
+                    else
+                    {
+                        <a href="~/LogInStart/SelectLogin" class="navbar-brand" style="color:white">CineStar Cinemas</a>
+
+                    }
+
+
+
+                }
+            </div>
+            <ul class="nav navbar-nav navbar-left">
+                @{
+                    if (!adminsession.IsEmpty())
+                    {
+                        <li><a style="color:white" href="~/Admins/AdminHome"><span></span>Home</a></li>
+
+                    }
+                    if (!adminsession.IsEmpty())
+                    {
+                        <li><a style="color:white" href="~/Admins/Index"><span></span>Customise Movies</a></li>
+
+                    }
+                    if (!adminsession.IsEmpty())
+                    {
+                        <li><a style="color:white" href="~/Admins/IndexShowAdmin"><span></span>Shows List</a></li>
+
+                    }
+                    if (!adminsession.IsEmpty())
+                    {
+                        <li><a style="color:white" href="~/Admins/GenerateReport"><span></span>Reports</a></li>
+
+                    }
+                    if (!usersession.IsEmpty())
+                    {
+                        <li><a style="color:white" href="~/Movies/ListAllMovies"><span></span>Home</a></li>
+
+                    }
+                    if (!usersession.IsEmpty())
+                    {
+                        <li><a style="color:white" href="~/Tickets/MyTickets"><span></span>Booked Tickets</a></li>
+
+                    }
+
+
+                }
+            </ul>
+            @{
+                if (!usersession.IsEmpty() || !adminsession.IsEmpty())
+                {
+                    <ul class="nav navbar-nav navbar-right">
+
+
+                        <li><a style="color:white" href="~/LogInStart/SelectLogin"><span class="glyphicon glyphicon-log-in"></span> Sign Out</a></li>
+                    </ul>
+                }
+            }
+
+        </div>
+    </nav>
+
+
+
+    <div class="container body-content text-center">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p style="color:white">&copy; @DateTime.Now.Year.ToString() - Cinestar</p>
+        </footer>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

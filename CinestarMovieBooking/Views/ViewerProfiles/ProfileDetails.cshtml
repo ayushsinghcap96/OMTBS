@@ -1,0 +1,49 @@
+﻿@model CinestarEntities.ViewerProfileEntity
+
+@{
+    ViewBag.Title = "ProfileDetails";
+}
+
+
+<div class="form-horizontal wrap-input100 p-l-55 p-r-55 p-t-80 p-b-30">
+    <h2>Profile Details</h2>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MobileNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MobileNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailId)
+        </dd>
+
+
+
+    </dl>
+    <button type="button" class="btn-primary"  style="width:200px; font-size:medium;border-radius:10px" onclick="@("window.location.href='" + @Url.Action("LogIn", "Users")+"'");">Login Now</button>
+
+</div>

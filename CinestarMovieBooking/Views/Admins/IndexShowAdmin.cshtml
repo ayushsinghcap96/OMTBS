@@ -1,0 +1,62 @@
+﻿@model IEnumerable<CinestarEntities.ShowEntityNew>
+
+
+@{
+    ViewBag.Title = "IndexShowAdmin";
+}
+<div class=" wrap-input100  p-l-55 p-r-55 p-t-400 p-b-30">
+    <h2>Index Show </h2>
+
+
+    <table class="table text-center">
+        <tr>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.ShowId)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.ShowDate)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.ShowTime)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Screen)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Movie)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShowId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShowDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShowTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Screen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Movie)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "DetailsShow", new { id = item.ShowId }) |
+                    @*@Html.ActionLink("Delete", "DeleteShow", new { id = item.ShowId })*@
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

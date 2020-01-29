@@ -1,0 +1,70 @@
+﻿@model IEnumerable<CinestarEntities.TicketEntityNew>
+
+@{
+    ViewBag.Title = "IndexTickets";
+}
+<div class=" wrap-input100  p-l-55 p-r-55 p-t-400 p-b-30">
+    <h2>Index Tickets</h2>
+
+   
+    <table class="table">
+        <tr>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Ticketid)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.TransactionDate)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.NoOfTickets)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.ViewerName)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.ShowDate)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Movie)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th class="text-center">
+                @Html.DisplayNameFor(model => model.Seats)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ticketid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TransactionDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NoOfTickets)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ViewerName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShowDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Movie)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Seats)
+                </td>
+
+            </tr>
+        }
+
+    </table>
+</div>

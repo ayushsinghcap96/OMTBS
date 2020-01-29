@@ -1,0 +1,49 @@
+﻿@model IEnumerable<CinestarEntities.ShowEntity>
+
+@{
+    ViewBag.Title = "GetShows";
+}
+
+<div class="wrap-input100 p-l-55 p-r-55 p-t-400 p-b-30"style="text-align: left">
+    <h2>Shows</h2>
+
+    <table class="table">
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.ShowDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShowTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+
+            
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShowDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShowTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+
+                <td>
+
+
+                    @Html.ActionLink("Book", "SelectSeatsView", "SeatLayout", new { showId = item.ShowId, movieId = item.MovieId }, null)
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

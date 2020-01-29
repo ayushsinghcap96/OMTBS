@@ -1,0 +1,41 @@
+﻿@model CinestarEntities.FeedbackEntity
+
+@{
+    ViewBag.Title = "DetailsFeedback";
+}
+
+
+<div class="wrap-input100  p-l-55 p-r-55 p-t-400 p-b-30">
+    <h2> Feedback</h2>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FeedbackId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FeedbackId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FeedbackDetails)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FeedbackDetails)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ViewersId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ViewersId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "AdminHome")
+</p>

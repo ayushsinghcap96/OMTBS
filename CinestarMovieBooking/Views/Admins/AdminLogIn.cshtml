@@ -1,0 +1,68 @@
+﻿@model CinestarEntities.AdminEntity
+
+@{
+    /**/
+
+    ViewBag.Title = "AdminLogIn";
+}
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+<div class="wrap-input100 p-l-55 p-r-55 p-t-80 p-b-30 container" style="width:500px">
+    <h2 style="width:400px">Administrator LogIn</h2>
+    <br />
+    <br />
+
+
+    <div class=" row" style="width:400px">
+        @Html.LabelFor(model => model.AdminName, "Admin ID", htmlAttributes: new { @class = "control-label col-md-5", @value = "Username" })
+        <div class="col-md-7">
+            @Html.EditorFor(model => model.AdminName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.AdminName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <br />
+    <br />
+
+    @{
+        string invalidcredentials = string.Empty;
+        if (ViewBag.InvalidCredentials != null)
+        {
+            invalidcredentials = @ViewBag.InvalidCredentials.ToString();
+
+        }
+    }
+
+    <div class=" row" style="width:400px">
+        @Html.LabelFor(model => model.AdminPassword, "Password", htmlAttributes: new { @class = "control-label col-md-5" })
+        <div class="col-md-7">
+            @Html.EditorFor(model => model.AdminPassword, new { htmlAttributes = new { @class = "form-control", @type = "password" } })
+            @Html.ValidationMessageFor(model => model.AdminPassword, invalidcredentials, new { @class = "text-danger" })
+        </div>
+    </div>                    <span class="focus-input100"></span>
+    <br />
+    <br />
+    <div class="row" style="width:400px">
+        <div class=" col-md-12 text-center">
+            <input type="submit" value="LogIn" class="btn btn-default text-center" />
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
+
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

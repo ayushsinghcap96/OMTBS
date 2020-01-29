@@ -1,0 +1,57 @@
+﻿@model IEnumerable<CinestarEntities.MovyEntityNew>
+
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script type="text/javascript">
+
+
+    </script>
+    <meta name="viewport" content="width=device-width" />
+    <title>SearchAuto</title>
+</head>
+<body>
+    @{int count = 0; }
+    @{ 
+        if (Model.Count() < 1)
+        {
+            <br /><br />
+            <label class=" label-warning">No Movies Found</label>
+        }
+    }
+    @foreach (var item in Model)
+    {
+        count++;
+        <div class="flip-card child inline-block-child ">
+            <div class="flip-card-inner">
+                <div class="flip-card-front" style="border:thin">
+                    <img src=@Url.Content(item.MovieUrl) style="width:200px;height:250px;">
+                    <h4 style="color:#eee"> @item.MovieName.ToString()</h4>
+
+                </div>
+                <div class="flip-card-back">
+                    <label style="max-width:inherit">@item.MovieName.ToString()</label>
+
+                    <br /><br /><br /><br /><br /><br />
+                    <p>
+                        <button type="button" onclick="@("window.location.href='" + @Url.Action("MovieDetails", "Movies") + "/"+item.MovieId+"'");">Book Now</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+
+    }
+</body>
+</html>
+

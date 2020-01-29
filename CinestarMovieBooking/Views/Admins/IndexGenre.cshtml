@@ -1,0 +1,37 @@
+﻿@model IEnumerable<CinestarEntities.GenreEntity>
+
+@{
+    ViewBag.Title = "IndexGenre";
+}
+<div class=" wrap-input100  p-l-55 p-r-55 p-t-400 p-b-30">
+    <h2>Index Genre</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "CreateGenre")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.GenreId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GenreName)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GenreId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GenreName)
+                </td>
+
+            </tr>
+        }
+
+    </table>
+    </div>

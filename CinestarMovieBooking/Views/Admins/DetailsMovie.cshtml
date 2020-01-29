@@ -1,0 +1,66 @@
+﻿@model CinestarEntities.MovyEntity
+
+@{
+    ViewBag.Title = "DetailsMovie";
+}
+
+
+<div class="wrap-input100  p-l-55 p-r-55 p-t-400 p-b-30">
+    <h2> Movie Details</h2>
+    <br /><br />
+    @{
+        <img src=@Model.MovieUrl.ToString() alt="Avengers" style="width:200px;height:250px;">
+    }
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MovieId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MovieId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MovieName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MovieName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReleaseDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReleaseDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GenreId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GenreId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LanguageId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LanguageId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MovieDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MovieDescription)
+        </dd>
+
+       
+    </dl>
+</div>

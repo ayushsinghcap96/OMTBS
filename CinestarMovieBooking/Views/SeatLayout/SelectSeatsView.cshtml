@@ -1,0 +1,123 @@
+﻿@model CinestarEntities.ShowSeatLayoutEntity
+
+@{
+    ViewBag.Title = "SelectSeatsView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal text-center">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.LayoutId)
+
+        <div class="form-group">
+            <div class="col-md-10">
+
+                @Html.HiddenFor(model => model.ShowId, new { htmlAttributes = new { @class = ""  } })
+                @Html.ValidationMessageFor(model => model.ShowId, "", new { @class = "" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UnavailableSeats, new { htmlAttributes = new { @class = "unavailableseats hide", name = "unavailableseats", id = "unavailableseats" } })
+                @Html.ValidationMessageFor(model => model.UnavailableSeats, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @{
+            string unavailable = @Html.HiddenFor(model => model.UnavailableSeats).ToString();
+            System.Text.StringBuilder editedUnavailable = new System.Text.StringBuilder("|");
+            editedUnavailable.Append(unavailable);
+            string[] array = editedUnavailable.ToString().Split('|');
+
+        }
+
+
+
+
+
+        <div class="form-group " style="text-align:center" >
+            <div class="wrap-layout-85 text-center p-l-55 p-r-55 p-t-80 p-b-30">
+                <span class="login100-form-title p-b-37">
+                    Select your Seats
+                </span>
+                <br />
+                <div class="login100-form  text-center " style="display:inline-block;height:100%;width:100%">
+
+
+
+
+                    @for (int i = 1; i <= 200; i++)
+                    {
+                        if (i % 20 == 0)
+                        {
+                            <br />
+                        }
+                        if (i == 200)
+                        {
+                            continue;
+                        }
+
+                        if (array.Contains(i.ToString()))
+                        {
+
+                            <img id=@i.ToString() src="~/occupied.jpg" style="padding:5px" />
+                             
+                            //<input id=@i.ToString() type="checkbox" disabled name="seat" />
+                        }
+                        else
+                        {
+                            <img id=@i.ToString() onclick="changeImage(@i.ToString());finalcall()" style="padding:5px" src="~/unoccupied.jpg" />
+                            <script>
+
+                function changeImage(id) {
+                    var image = document.getElementById(id);
+                    image.src = ('@Url.Content(String.Format("~/selected.jpg"))')
+                    //$('.selectedseats').append("|");
+                    //$('.selectedseats').append(image.id);
+                    $('.selectedseats').val($('.selectedseats').val() + image.id + "|");
+
+                    $('.unavailableseats').val("|"+$('.unavailableseats').val()+image.id+"|");
+
+
+                }
+                            </script>
+
+
+                        }
+
+
+                    }
+                    <img src="~/SCREEN.JPG" />
+
+                    <input name="selectedseats" hidden id="selectedseats" class="selectedseats" />
+                    <div class="form-group">
+                        <div class="container-login100-form-btn">
+                            <input type="submit" value="Save" class="login100-form-btn" />
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+
+
+
+
+
+
+    </div>
+}
+
+

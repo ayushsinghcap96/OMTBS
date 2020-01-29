@@ -1,0 +1,77 @@
+﻿@model CinestarEntities.UserEntity
+
+@{
+    ViewBag.Title = "SignUp";
+}
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="wrap-input100 p-l-55 p-r-55 p-t-80 p-b-30 container" style="width:500px">
+    <h2 style="width:400px">Sign Up</h2>
+    <hr />
+    <br />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <br />
+
+    <div class=" row" style="width:400px">
+        @Html.LabelFor(model => model.UserName, "Username", htmlAttributes: new { @class = "control-label col-md-5" })
+        <div class="col-md-7">
+            @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <br />
+
+    <div class=" row" style="width:400px">
+        @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-5" })
+        <div class="col-md-7">
+            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @type = "password", @id = "password" } })
+            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <br />
+
+    <div class=" row" style="width:400px">
+        <label class="control-label col-md-5"> Confirm Password</label>
+        <div class="col-md-7">
+
+            <input class="form-control" type="password" name="confirm_password" id="confirm_password" onkeyup='check();' />
+            <span id='message'></span>
+        </div>
+    </div>    <br />
+
+    <script>
+        var check = function () {
+            if (document.getElementById('password').value ==
+                document.getElementById('confirm_password').value) {
+                document.getElementById('message').style.color = 'green';
+                document.getElementById('message').innerHTML = 'matching';
+                document.getElementById('signup').disabled = false;
+
+            } else {
+                document.getElementById('message').style.color = 'red';
+                document.getElementById('message').innerHTML = 'not matching';
+                document.getElementById('signup').disabled = true;
+
+                4
+            }
+
+    </script>
+
+    <div class="row" style="width:400px">
+        <div class=" col-md-12 text-center">
+            <input type="submit" value="SignUp" id="signup" class="btn btn-default" />
+        </div>
+    </div>    <br />
+
+</div>
+}
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
